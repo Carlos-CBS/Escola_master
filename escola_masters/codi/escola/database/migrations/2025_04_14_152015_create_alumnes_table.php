@@ -11,11 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('masters', function (Blueprint $table) {
+        Schema::create('alumnes', function (Blueprint $table) {
             $table->id(); // identificador
             $table->string('nom');
-            $table->integer('hores');
-            $table->string('director');
+            $table->string('correu')->unique();
+            $table->string('adreça');
+            $table->string('ciutat');
+            $table->string('pais');
+            $table->string('telefon');
+            $table->unsignedBigInteger('master'); // foreign key
+        
+            $table->foreign('master')->references('id')->on('masters')->onDelete('cascade');
             $table->timestamps();
         });
         
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('masters');
+        Schema::dropIfExists('alumnes');
     }
 };
