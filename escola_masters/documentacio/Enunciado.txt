@@ -1,0 +1,30 @@
+OPCIÓ 1: BASE DE DADES D'UNA ESCOLA QUE OFEREIX MASTERS
+
+S'ha de gestionar la base de dades d'una escola que ofereix master a alumnes que hagin finalitzat un cicle
+de grau superior. Per fer aquesta feina es disposaran de 3 taules amb els següents camps:
+
+a) Taula 1 - masters:
+- identificador → Número identificador del master → primary key
+- nom → Nom del master
+- hores → durada del master en hores
+- director de master → Nom del director del master
+- Un master pot tenir molts alumnes.
+
+b) Taula 2 - alumnes:
+- identificador → Número identificador de l’alumne → primary key
+- nom → Nom i cognoms de l’alumnes
+- correu → Correu electrònic de l’alumne
+- adreça → Adreça física de l’estudiant
+- ciutat → Ciutat de residència de l’alumne
+- pais → País de residència de l’alumne
+- telefon → Telèfon de l’alumne
+- master → identificador del master a on s’ha matriculat → foreign key → Identificador de la taula masters
+- Un alumne només pot estudiar un master
+
+c) Taula 3 - usuaris (users):
+- id → Identificador → primary key
+- name → Nom d’usuari
+- role → Administrador o Consultor
+- email→ Correu electrònic de l’usuari
+- password → Contrasenya de l’usuari
+- És una taula independent de les altres dues taules.
