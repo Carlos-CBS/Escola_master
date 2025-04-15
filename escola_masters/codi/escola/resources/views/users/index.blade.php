@@ -1,5 +1,11 @@
 <h1>Lista de Usuarios</h1>
 <table>
+    @if(session('error'))
+        <script>
+            alert("{{ session('error') }}");
+        </script>
+    @endif
+    
     <thead>
         <tr>
             <th>Nombre</th>

@@ -18,12 +18,25 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'password' => [
+                'required',
+                'string',
+                'min:8',
+                'regex:/[a-z]/',    
+                'regex:/[A-Z]/',     
+                'regex:/[0-9]/',
+            ],            
+        ], [
+            'password.regex' => 'La contraseña debe contener al menos una letra mayúscula, una minúscula y un número.',
+        ]);
+        
+        $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
             'role' => 'required|in:Administrador,Consultor',
         ]);
 
+        
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,

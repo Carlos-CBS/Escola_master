@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\masterController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\IsAdmin;
@@ -16,11 +17,14 @@ Route::get('/info', function () {
 use App\Models\User;
 
 Route::get('/dashboard', function () {
-    if (auth()->user()->role === 'Administrador') {
-        return view('dashboard.admin');
+    $user = auth()->user();
+    
+
+    if ($user->role === 'Administrador') {
+        return view('dashboard.admin', compact('user'));
     }
     
-    return view('dashboard.consultor');
+    return view('dashboard.consultor', compact('user'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -34,6 +38,12 @@ Route::middleware(['auth', IsAdmin::class])->group(function () {
     Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
+    Route::get('/masters', [masterController::class, 'index'])->name('master.index');
+    Route::post('/master/create', [masterController::class, 'create'])->name('master.create');
+    Route::post('/masters', [masterController::class, 'store'])->name('master.store');
+
 });
+
 
 require __DIR__.'/auth.php';
