@@ -18,13 +18,12 @@ use App\Models\User;
 
 Route::get('/dashboard', function () {
     $user = auth()->user();
-    
 
     if ($user->role === 'Administrador') {
-        return view('dashboard.admin', compact('user'));
+        return view('dashboard.admin', ['user' => $user]);
     }
     
-    return view('dashboard.consultor', compact('user'));
+    return view('dashboard.consultor', ['user' => $user]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
