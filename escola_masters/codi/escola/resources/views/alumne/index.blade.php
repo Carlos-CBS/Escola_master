@@ -27,9 +27,9 @@
                     <td>{{ $alumne->ciutat }}</td>
                     <td>{{ $alumne->pais }}</td>
                     <td>{{ $alumne->telefon }}</td>
-                    <td>{{ $alumne->masterObj->nom ?? 'No asignado' }}</td>                </tr>
+                    <td>{{ $alumne->masterObj->nom ?? 'No asignado' }}</td>
+                </tr>
             @endforeach
         </tbody>
     </table>
-
 </div>

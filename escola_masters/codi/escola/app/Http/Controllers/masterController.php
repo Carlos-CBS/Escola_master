@@ -12,13 +12,7 @@ class masterController extends Controller
 }
 
     public function store(Request $request){
-        // $table->id(); // identificador
-        // $table->string('nom');
-        // $table->integer('hores');
-        // $table->string('director');
 
-
-        // guardar en la base de datos
         $master = Master::create ([
             'nom' => $request->nom,
             'hores' => $request->hores,

@@ -1,9 +1,4 @@
 <h1> Creando un master </h1>
-{{-- 
-'nom',
-'hores',
-'director', --}}
-
 
 <form method="POST" action=" {{ route("master.store") }}">
     @csrf
