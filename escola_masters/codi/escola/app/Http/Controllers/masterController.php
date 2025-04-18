@@ -41,4 +41,17 @@ class masterController extends Controller
     public function data(Master $master){
         return view('master.data', compact('master'));
     }
+    public function edit(Master $master) {
+        return view('master.edit', compact('master'));
+    }
+
+    public function update(Request $request, Master $master) {
+        $master->update([
+            'nom' => $request->nom,
+            'hores' => $request->hores,
+            'director' => $request->director,
+        ]);
+
+        return redirect()->route('master.index');
+    }
 }

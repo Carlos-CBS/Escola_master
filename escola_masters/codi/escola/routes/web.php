@@ -5,6 +5,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PDFController;
+use App\Http\Controllers\AlumneController;
+
 
 Route::get('/', function () {
     return view('home');
@@ -44,6 +47,14 @@ Route::middleware(['auth', IsAdmin::class])->group(function () {
     Route::get('/master/{master}', [masterController::class, 'data'])->name('master.data');
     Route::delete('/masters/{master}', [masterController::class, 'destroy'])->name('master.destroy');
 
+    Route::get('/master/edit/{master}', [masterController::class, 'edit'])->name('master.edit');
+    Route::put('/master/{master}', [masterController::class, 'update'])->name('master.update');
+
+    Route::get('/generatepdf/{master}', [PDFController::class, 'generatePDF'])->name('pdf.taula1');
+
+    Route::get('alumnes/create', [AlumneController::class, 'create'])->name('alumne.create');
+    Route::get('alumnes', [AlumneController::class, 'index'])->name('alumne.index');
+    Route::post('alumnes', [AlumneController::class, 'store'])->name('alumne.store');
 });
 
 

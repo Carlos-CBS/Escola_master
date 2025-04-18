@@ -10,3 +10,6 @@
 <a href="{{ route('users.create') }}">Crear un usuario</a>
 <a href="{{ route("master.create") }}">Crear un master</a>
 <a href="{{ route("master.index") }}">Listado de masters</a>
+
+<a href="{{ route('alumne.create') }}">Crear un alumno</a>
+<a href="{{ route('alumne.index') }}">Listado de alumnos</a> 

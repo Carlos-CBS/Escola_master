@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('ciutat');
             $table->string('pais');
             $table->string('telefon');
-            $table->unsignedBigInteger('master'); // foreign key
+            $table->unsignedBigInteger('master')->nullable();
         
-            $table->foreign('master')->references('id')->on('masters')->onDelete('cascade');
+            $table->foreign('master')->references('id')->on('masters')->onDelete('set null');
             $table->timestamps();
         });
         
