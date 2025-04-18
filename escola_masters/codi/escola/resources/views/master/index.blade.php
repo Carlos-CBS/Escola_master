@@ -2,10 +2,16 @@
 
 @foreach ( $masters as $master )
 <ul>
-    <li> {{ $master->id }} </li>
     <li> {{  $master->nom }} </li>
-    <li> {{  $master->hores }} </li>
-    <li> {{  $master->director }} </li>
+    <form method="GET" action="{{  route('master.data', $master) }}">
+        <button type="submit"> Ver master </button>
+    </form>
+
+    <form method="POST" action="{{ route('master.destroy', $master) }}">
+        @csrf
+        @method('DELETE')
+        <button type="submit"> Eliminar </button>
+        </form>
 </ul>
 <br>
 <p> ------------------ </p>

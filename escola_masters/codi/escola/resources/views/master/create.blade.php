@@ -6,8 +6,9 @@
 
 
 <form method="POST" action=" {{ route("master.store") }}">
+    @csrf
     <input type="text" name="nom" placeholder="nombre del master">
     <input type="number" name="hores" placeholder="Número de horas">
     <input type="text" name="director" placeholder="Director del master">
-
+    <button type="submit">Enviar</button>
 </form>

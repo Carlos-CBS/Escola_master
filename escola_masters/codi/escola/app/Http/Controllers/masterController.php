@@ -31,6 +31,14 @@ class masterController extends Controller
     public function index()
     {
         $masters = Master::all();
-        return view('master.index', compact($masters));
+        return view('master.index', ['masters' => $masters]);
+    }
+    public function destroy(Master $master)
+    {
+        $master->delete();
+        return redirect()->route('master.index');
+    }
+    public function data(Master $master){
+        return view('master.data', compact('master'));
     }
 }

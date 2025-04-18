@@ -39,8 +39,10 @@ Route::middleware(['auth', IsAdmin::class])->group(function () {
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
     Route::get('/masters', [masterController::class, 'index'])->name('master.index');
-    Route::post('/master/create', [masterController::class, 'create'])->name('master.create');
+    Route::get('/master/create', [masterController::class, 'create'])->name('master.create');
     Route::post('/masters', [masterController::class, 'store'])->name('master.store');
+    Route::get('/master/{master}', [masterController::class, 'data'])->name('master.data');
+    Route::delete('/masters/{master}', [masterController::class, 'destroy'])->name('master.destroy');
 
 });
 
