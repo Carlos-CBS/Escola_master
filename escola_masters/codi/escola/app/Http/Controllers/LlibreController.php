@@ -47,7 +47,7 @@ class LlibreController extends Controller
      */
     public function show(Llibre $llibre)
     {
-        //
+        return view('llibre.show', compact('llibre'));
     }
 
     /**

@@ -48,7 +48,7 @@ class ProfessorController extends Controller
      */
     public function show(Professor $professor)
     {
-        //
+        return view('professor.show', compact('professor'));
     }
 
     /**

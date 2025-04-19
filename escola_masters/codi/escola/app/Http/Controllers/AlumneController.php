@@ -37,5 +37,11 @@ class AlumneController extends Controller
         
         return view('alumne.index', ['alumnes' => $alumnes]);
     }
+    
+    public function show(Alumne $alumne)
+    {
+        $alumne->load('master');
+        return view('alumne.show', compact('alumne'));
+    }
 
 }

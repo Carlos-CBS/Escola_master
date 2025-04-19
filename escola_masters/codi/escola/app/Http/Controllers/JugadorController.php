@@ -47,7 +47,7 @@ class JugadorController extends Controller
      */
     public function show(Jugador $jugador)
     {
-        //
+        return view('jugador.show', compact('jugador'));
     }
 
     /**
