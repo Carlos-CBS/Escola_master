@@ -55,6 +55,18 @@ Route::middleware(['auth', IsAdmin::class])->group(function () {
     Route::get('alumnes/create', [AlumneController::class, 'create'])->name('alumne.create');
     Route::get('alumnes', [AlumneController::class, 'index'])->name('alumne.index');
     Route::post('alumnes', [AlumneController::class, 'store'])->name('alumne.store');
+    
+    Route::get('llibres/create', [LlibreController::class, 'create'])->name('llibre.create');
+    Route::get('llibres', [LlibreController::class, 'index'])->name('llibre.index');
+    Route::post('llibres', [LlibreController::class, 'store'])->name('llibre.store');
+
+    Route::get('professors/create', [ProfessorController::class, 'create'])->name('professor.create');
+    Route::get('professors', [ProfessorController::class, 'index'])->name('professor.index');
+    Route::post('professors', [ProfessorController::class, 'store'])->name('professor.store');
+
+    Route::get('jugadors/create', [JugadorController::class, 'create'])->name('jugador.create');
+    Route::get('jugadors', [JugadorController::class, 'index'])->name('jugador.index');
+    Route::post('jugadors', [JugadorController::class, 'store'])->name('jugador.store');
 });
 
 

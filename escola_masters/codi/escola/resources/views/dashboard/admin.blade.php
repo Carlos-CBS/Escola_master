@@ -10,6 +10,15 @@
 <a href="{{ route('users.create') }}">Crear un usuario</a>
 <a href="{{ route("master.create") }}">Crear un master</a>
 <a href="{{ route("master.index") }}">Listado de masters</a>
-
-<a href="{{ route('alumne.create') }}">Crear un alumno</a>
-<a href="{{ route('alumne.index') }}">Listado de alumnos</a> 
+<br>
+<a href="{{ route('alumne.create') }}" class="btn btn-success">Crear un alumno</a>
+<a href="{{ route('alumne.index') }}" class="btn btn-success">Listado de alumnos</a> 
+<br>
+<a href="{{ route('llibre.create') }}" class="btn btn-success">Crear un Llibre</a>
+<a href="{{ route('llibre.index') }}" class="btn btn-success">Listado de alumnos</a> 
+<br>
+<a href="{{ route('professor.create') }}" class="btn btn-success">Crear un Professor</a>
+<a href="{{ route('professor.index') }}" class="btn btn-success">Listado de professores</a> 
+<br>
+<a href="{{ route('jugador.create') }}" class="btn btn-success">Crear un Jugador</a>
+<a href="{{ route('jugador.index') }}" class="btn btn-success">Listado de jugadores</a> 
