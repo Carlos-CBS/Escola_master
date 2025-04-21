@@ -29,6 +29,12 @@
                     <td>{{ $alumne->telefon }}</td>
                     <td>{{ $alumne->masterObj->nom ?? 'No asignado' }}</td>
                     <td> 
+                        <a href="{{ route('alumne.show', $alumne->id) }}">Editar Alumne</a>
+                    </td>
+                    <td> 
+                        <a href="{{ route('alumne.show', $alumne->id) }}">Eliminar Alumne</a>
+                    </td>
+                    <td> 
                         <a href="{{ route('alumne.show', $alumne->id) }}">Detalles Alumne</a>
                     </td>
                 </tr>

@@ -23,15 +23,60 @@
     <div class="card">
         <div class="card-header"><strong>Detalles</strong></div>
         <div class="card-body">
-            {{-- Contenido dinámico según la entidad --}}
+            {{-- Contenido dinámico --}}
             @if(isset($alumne))
-                @include('pdf.partials.alumne')
-            @elseif(isset($llibre))
-                @include('pdf.partials.llibre')
-            @elseif(isset($professor))
-                @include('pdf.partials.professor')
-            @elseif(isset($jugador))
-                @include('pdf.partials.jugador')
+                <table class="table table-striped table-bordered">
+                    <tbody>
+                        <tr>
+                            <td><strong>Nombre:</strong></td>
+                            <td>{{ $alumne->nom }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Correo:</strong></td>
+                            <td>{{ $alumne->correu }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dirección:</strong></td>
+                            <td>{{ $alumne->adreça }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ciudad:</strong></td>
+                            <td>{{ $alumne->ciutat }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>País:</strong></td>
+                            <td>{{ $alumne->pais }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Teléfono:</strong></td>
+                            <td>{{ $alumne->telefon }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Master:</strong></td>
+                            <td>{{ $alumne->master->nom ?? 'No asignado' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            @elseif(isset($master))
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Horas</th>
+                            <th>Nombre</th>
+                            <th>Director</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ $master->id }}</td>
+                            <td>{{ $master->hores }}</td>
+                            <td>{{ $master->nom }}</td>
+                            <td>{{ $master->director }}</td>
+                        </tr>
+                    </tbody>
+                </table>
             @endif
         </div>
     </div>
