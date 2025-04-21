@@ -7,6 +7,7 @@ use App\Http\Middleware\IsAdmin;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\AlumneController;
+use App\Http\Controllers\ConsultorController;
 use App\Models\Alumne;
 use App\Exceptions\ExcepcionPersonalizada;
 
@@ -38,6 +39,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/consultor/tabla1', [MasterController::class, 'index'])->name('consultor.taula1');  
+    Route::get('/consultor/tabla2', [AlumneController::class, 'index'])->name('consultor.taula2'); 
 });
 
 Route::middleware(['auth', IsAdmin::class])->group(function () {
