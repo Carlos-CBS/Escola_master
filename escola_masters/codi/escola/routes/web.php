@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\AlumneController;
 use App\Models\Alumne;
+use App\Exceptions\ExcepcionPersonalizada;
 
 
 Route::get('/', function () {
@@ -65,6 +66,10 @@ Route::middleware(['auth', IsAdmin::class])->group(function () {
     Route::put('/alumnes/{alumne}', [AlumneController::class, 'update'])->name('alumne.update');
     Route::delete('/alumnes/{alumne}', [AlumneController::class, 'destroy'])->name('alumne.destroy');
 
+});
+
+Route::get('/test-exception', function() {
+    throw new ExcepcionPersonalizada("¡Ups! Algo salió mal.");
 });
 
 require __DIR__.'/auth.php';
