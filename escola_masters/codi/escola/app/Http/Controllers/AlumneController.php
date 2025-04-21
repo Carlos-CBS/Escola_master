@@ -37,11 +37,17 @@ class AlumneController extends Controller
         
         return view('alumne.index', ['alumnes' => $alumnes]);
     }
-    
+
     public function show(Alumne $alumne)
     {
-        $alumne->load('master');
+        $alumne->load('master'); // Carga la relación "master" para evitar consultas adicionales
         return view('alumne.show', compact('alumne'));
+    }
+
+    public function destroy(Alumne $alumne)
+    {
+        $alumne->delete();
+        return redirect()->route('alumne.index')->with('success', 'Alumne eliminat correctament!');
     }
 
 }
