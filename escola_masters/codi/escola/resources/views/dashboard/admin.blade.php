@@ -8,23 +8,21 @@
 
 <a href="{{ route('users.index') }}"> Mostrando clientes</a>
 <a href="{{ route('users.create') }}">Crear un usuario</a>
+<br><br>
 <a href="{{ route("master.create") }}">Crear un master</a>
 <a href="{{ route("master.index") }}">Listado de masters</a>
-<br>
+<br><br>
 <a href="{{ route('alumne.create') }}" class="btn btn-success">Crear un alumno</a>
 <a href="{{ route('alumne.index') }}" class="btn btn-success">Listado de alumnos</a> 
-<a href="{{ route('alumne.show', $alumne->id) }}" class="btn btn-sm btn-info">Detalles</a>
-<br>
+
+<br><br>
 <a href="{{ route('llibre.create') }}" class="btn btn-success">Crear un Libro</a>
 <a href="{{ route('llibre.index') }}" class="btn btn-success">Listado de Libros</a> 
-<a href="{{ route('llibre.show', $llibre->id) }}" class="btn btn-sm btn-info">Detalles</a>
 
-<br>
+<br><br>
 <a href="{{ route('professor.create') }}" class="btn btn-success">Crear un Professor</a>
 <a href="{{ route('professor.index') }}" class="btn btn-success">Listado de professores</a> 
-<a href="{{ route('professor.show', $professor->id) }}" class="btn btn-sm btn-info">Detalles</a>
 
-<br>
+<br><br>
 <a href="{{ route('jugador.create') }}" class="btn btn-success">Crear un Jugador</a>
 <a href="{{ route('jugador.index') }}" class="btn btn-success">Listado de jugadores</a> 
-<a href="{{ route('jugador.show', $jugador->id) }}" class="btn btn-sm btn-info">Detalles</a>

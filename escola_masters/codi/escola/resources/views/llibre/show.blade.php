@@ -9,5 +9,8 @@
         </div>
     </div>
 
-    <a href="{{ route('llibre.index') }}" class="btn btn-secondary mt-3">Tornar</a>
+    <div class="card-body">
+        <a href="{{ route('llibre.index') }}" class="btn btn-secondary">Tornar</a>
+        <a href="{{ route('pdf.llibre', $llibre) }}" class="btn btn-danger">Descargar PDF</a>
+    </div>
 </div>

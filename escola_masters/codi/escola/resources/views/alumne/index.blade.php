@@ -28,8 +28,12 @@
                     <td>{{ $alumne->pais }}</td>
                     <td>{{ $alumne->telefon }}</td>
                     <td>{{ $alumne->masterObj->nom ?? 'No asignado' }}</td>
+                    <td> 
+                        <a href="{{ route('alumne.show', $alumne->id) }}">Detalles Alumne</a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    <a href="{{ route('dashboard') }}" class="btn btn-primary">Volver al menú principal</a>
 </div>

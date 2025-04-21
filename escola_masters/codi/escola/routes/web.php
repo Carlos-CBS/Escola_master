@@ -7,6 +7,14 @@ use App\Http\Middleware\IsAdmin;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\AlumneController;
+use App\Http\Controllers\JugadorController;
+use App\Http\Controllers\LlibreController;
+use App\Http\Controllers\ProfessorController;
+
+use App\Models\Alumne;
+use App\Models\Llibre;
+use App\Models\Professor;
+use App\Models\Jugador;
 
 
 Route::get('/', function () {
@@ -23,7 +31,13 @@ Route::get('/dashboard', function () {
     $user = auth()->user();
 
     if ($user->role === 'Administrador') {
-        return view('dashboard.admin', ['user' => $user]);
+        return view('dashboard.admin', [
+            'user' => $user,
+            'alumne' => Alumne::first(),
+            'llibre' => Llibre::first(),
+            'professor' => Professor::first(),
+            'jugador' => Jugador::first(),
+        ]);
     }
     
     return view('dashboard.consultor', ['user' => $user]);
@@ -71,7 +85,28 @@ Route::middleware(['auth', IsAdmin::class])->group(function () {
     Route::get('jugadors', [JugadorController::class, 'index'])->name('jugador.index');
     Route::post('jugadors', [JugadorController::class, 'store'])->name('jugador.store');
     Route::get('/jugadors/{jugador}', [JugadorController::class, 'show'])->name('jugador.show');
+
+
+    Route::get('/generatepdf/alumne/{alumne}', [PDFController::class, 'generateAlumnePDF'])->name('pdf.alumne');
+    Route::get('/generatepdf/llibre/{llibre}', [PDFController::class, 'generateLlibrePDF'])->name('pdf.llibre');
+    Route::get('/generatepdf/professor/{professor}', [PDFController::class, 'generateProfessorPDF'])->name('pdf.professor');
+    Route::get('/generatepdf/jugador/{jugador}', [PDFController::class, 'generateJugadorPDF'])->name('pdf.jugador');
+
 });
 
+Route::get('/jugador', function () {
+    $jugador = Jugador::first();  
+    return view('jugador.index', compact('jugador'));
+});
+
+Route::get('/professor', function () {
+    $professor = Professor::first(); 
+    return view('professor.index', compact('professor'));
+});
+
+Route::get('/llibre', function () {
+    $llibre = Llibre::first();
+    return view('llibre.index', compact('llibre'));
+}); 
 
 require __DIR__.'/auth.php';

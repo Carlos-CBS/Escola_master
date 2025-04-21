@@ -28,5 +28,5 @@
 <br>
 <p> ------------------ </p>
 <br>
-    
 @endforeach
+<a href="{{ route('dashboard') }}" class="btn btn-primary">Volver al menú principal</a>

@@ -11,6 +11,9 @@
             <p><strong>Master:</strong> {{ $alumne->master->nom ?? 'Sense master' }}</p>
         </div>
     </div>
-
-    <a href="{{ route('alumne.index') }}" class="btn btn-secondary mt-3">Tornar</a>
+   
+    <div class="card-body">
+        <a href="{{ route('alumne.index') }}" class="btn btn-secondary">Tornar</a>
+        <a href="{{ route('pdf.alumne', $alumne) }}" class="btn btn-danger">Descargar PDF</a>
+    </div>
 </div>

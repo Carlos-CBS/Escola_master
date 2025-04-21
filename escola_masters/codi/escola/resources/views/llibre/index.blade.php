@@ -30,8 +30,12 @@
                             <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
                         </form>
                     </td>
+                    <td>
+                        <a href="{{ route('llibre.show', $llibre->id) }}">Detalles Libros</a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    <a href="{{ route('dashboard') }}" class="btn btn-primary">Volver al menú principal</a>
 </div>

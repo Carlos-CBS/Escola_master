@@ -9,5 +9,8 @@
         </div>
     </div>
 
-    <a href="{{ route('jugador.index') }}" class="btn btn-secondary mt-3">Tornar</a>
+    <div class="card-body">
+        <a href="{{ route('jugador.index') }}" class="btn btn-secondary">Tornar</a>
+        <a href="{{ route('pdf.jugador', $jugador) }}" class="btn btn-danger">Descargar PDF</a>
+    </div>
 </div>
