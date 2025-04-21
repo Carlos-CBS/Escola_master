@@ -14,11 +14,11 @@ class Alumne extends Model
         'ciutat',
         'pais',
         'telefon',
-        'master',
+        'master_id',
     ];
 
     public function master()
     {
-        return $this->belongsTo(Master::class, 'master');
+        return $this->belongsTo(Master::class, 'master_id');
     }
 }

@@ -7,14 +7,7 @@ use App\Http\Middleware\IsAdmin;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\AlumneController;
-use App\Http\Controllers\JugadorController;
-use App\Http\Controllers\LlibreController;
-use App\Http\Controllers\ProfessorController;
-
 use App\Models\Alumne;
-use App\Models\Llibre;
-use App\Models\Professor;
-use App\Models\Jugador;
 
 
 Route::get('/', function () {
@@ -68,6 +61,8 @@ Route::middleware(['auth', IsAdmin::class])->group(function () {
     Route::post('alumnes', [AlumneController::class, 'store'])->name('alumne.store');
     Route::get('/alumnes/{alumne}', [AlumneController::class, 'show'])->name('alumne.show');
     Route::get('/generatepdf/alumne/{alumne}', [PDFController::class, 'generateAlumnePDF'])->name('pdf.alumne');
+    Route::get('/alumnes/{alumne}/edit', [AlumneController::class, 'edit'])->name('alumne.edit');
+    Route::put('/alumnes/{alumne}', [AlumneController::class, 'update'])->name('alumne.update');
     Route::delete('/alumnes/{alumne}', [AlumneController::class, 'destroy'])->name('alumne.destroy');
 
 });

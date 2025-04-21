@@ -14,6 +14,7 @@
    
     <div class="card-body">
         <a href="{{ route('alumne.index') }}" class="btn btn-secondary">Tornar</a>
+        <a href="{{ route('alumne.edit', $alumne) }}" class="btn btn-warning">Editar</a>
         <a href="{{ route('pdf.alumne', $alumne) }}" class="btn btn-danger">Descargar PDF</a>
     </div>
 </div>

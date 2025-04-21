@@ -29,15 +29,17 @@ class PDFController extends Controller
               
         $pdf = PDF::loadView('pdf.taula1', $data);
        
-        return $pdf->download($master->nom . '_' . date('m-d-Y') . 'pdf');
+        return $pdf->download($master->nom . '_' . date('m-d-Y') . '.pdf');
     }
     public function generateAlumnePDF(Alumne $alumne)
     {
+        $alumne->load('master');
         $data = [
             'title' => 'Datos del alumno',
             'date' => date('m/d/Y'),
-            'alumne' => $alumne->load('master')
+            'alumne' => $alumne
         ];
+
         
         $pdf = Pdf::loadView('pdf.taula2', $data);
         return $pdf->download("alumne_{$alumne->nom}_" . date('m-d-Y') . '.pdf');

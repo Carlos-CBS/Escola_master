@@ -35,11 +35,13 @@
         </div>
 
         <div class="form-group">
-            <label for="master">Master</label>
-            <select name="master" id="master" class="form-control" required>
-                <option value="">Seleccionar un Master</option>
+            <label for="master">Selecciona un Master:</label>
+            <select name="master_id" id="master_id">
+                <option value="">Sense master</option>
                 @foreach ($masters as $master)
-                    <option value="{{ $master->id }}">{{ $master->nom }}</option>
+                <option value="{{ $master->id }}" {{ (old('master_id') == $master->id) ? 'selected' : '' }}>
+                    {{ $master->nom }}
+                </option>
                 @endforeach
             </select>
         </div>

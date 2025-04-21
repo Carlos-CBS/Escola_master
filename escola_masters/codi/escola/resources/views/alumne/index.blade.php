@@ -1,45 +1,31 @@
-<div class="container">
-    <h1>Lista de Alumnos</h1>
+<h1>Listado de Alumnos</h1>
 
-    <a href="{{ route('alumne.create') }}" class="btn btn-primary mb-3">Crear Alumno</a>
+@foreach ($alumnes as $alumne)
+    <ul>
+        <li><strong>Nombre:</strong> {{ $alumne->nom }}</li>
+        <li><strong>Correo:</strong> {{ $alumne->correu }}</li>
+        <li><strong>Master:</strong> {{ $alumne->master->nom ?? 'No asignado' }}</li>
+        <li>
+            <form method="GET" action="{{ route('alumne.show', $alumne) }}" style="display:inline;">
+                <button type="submit">Ver alumno</button>
+            </form>
 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Correo</th>
-                <th>Dirección</th>
-                <th>Ciudad</th>
-                <th>País</th>
-                <th>Teléfono</th>
-                <th>Master</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($alumnes as $alumne)
-                <tr>
-                    <td>{{ $alumne->id }}</td>
-                    <td>{{ $alumne->nom }}</td>
-                    <td>{{ $alumne->correu }}</td>
-                    <td>{{ $alumne->adreça }}</td>
-                    <td>{{ $alumne->ciutat }}</td>
-                    <td>{{ $alumne->pais }}</td>
-                    <td>{{ $alumne->telefon }}</td>
-                    <td>{{ $alumne->masterObj->nom ?? 'No asignado' }}</td>
-                    <td> 
-                        <a href="{{ route('alumne.show', $alumne->id) }}">Editar Alumne</a>
-                    </td>
-                    <td> 
-                        <a href="{{ route('alumne.show', $alumne->id) }}">Eliminar Alumne</a>
-                    </td>
-                    <td> 
-                        <a href="{{ route('alumne.show', $alumne->id) }}">Detalles Alumne</a>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-    <a href="{{ route('dashboard') }}" class="btn btn-primary">Volver al menú principal</a>
-</div>
+            <form method="POST" action="{{ route('alumne.destroy', $alumne) }}" style="display:inline;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" onclick="return confirm('¿Eliminar alumno?')">Eliminar</button>
+            </form>
+
+            <form method="GET" action="{{ route('alumne.edit', $alumne) }}" style="display:inline;">
+                <button type="submit">Modificar alumno</button>
+            </form>
+
+            <form method="GET" action="{{ route('pdf.alumne', $alumne) }}" style="display:inline;">
+                <button type="submit">Generar PDF del alumno</button>
+            </form>
+        </li>
+    </ul>
+    <p>------------------</p>
+@endforeach
+
+<a href="{{ route('dashboard') }}" class="btn btn-primary">Volver al menú principal</a>

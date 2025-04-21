@@ -62,17 +62,15 @@
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Horas</th>
                             <th>Nombre</th>
+                            <th>Horas</th>
                             <th>Director</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{{ $master->id }}</td>
+                            <td>{{ $master->nom }}</td>    
                             <td>{{ $master->hores }}</td>
-                            <td>{{ $master->nom }}</td>
                             <td>{{ $master->director }}</td>
                         </tr>
                     </tbody>
