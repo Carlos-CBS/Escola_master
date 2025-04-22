@@ -8,8 +8,9 @@
 
 <a href="{{ route('users.index') }}"> Mostrando clientes</a>
 <a href="{{ route('users.create') }}">Crear un usuario</a>
+<br><br>
 <a href="{{ route("master.create") }}">Crear un master</a>
 <a href="{{ route("master.index") }}">Listado de masters</a>
-
-<a href="{{ route('alumne.create') }}">Crear un alumno</a>
-<a href="{{ route('alumne.index') }}">Listado de alumnos</a> 
+<br><br>
+<a href="{{ route('alumne.create') }}" class="btn btn-success">Crear un alumno</a>
+<a href="{{ route('alumne.index') }}" class="btn btn-success">Listado de alumnos</a> 

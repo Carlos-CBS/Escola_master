@@ -19,7 +19,7 @@ class Master extends Model
 
     public function alumnes()
     {
-        return $this->hasMany(Alumne::class, 'master');
+        return $this->hasMany(Alumne::class, 'master_id');
     }
 }
 

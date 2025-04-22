@@ -52,4 +52,9 @@ class User extends Authenticatable
     public function isConsultor(){
         return $this->role === 'Consultor';
     }
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
 }
