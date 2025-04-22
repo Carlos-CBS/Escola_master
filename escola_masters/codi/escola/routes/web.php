@@ -74,7 +74,7 @@ Route::middleware(['auth', IsAdmin::class])->group(function () {
 
 });
 
-Route::get('/test-exception', function() {
+Route::fallback(function() {
     throw new ExcepcionPersonalizada("¡Ups! Algo salió mal.");
 });
 
